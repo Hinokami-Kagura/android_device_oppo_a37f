@@ -37,7 +37,7 @@ TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a53
+TARGET_2ND_CPU_VARIANT := generic
 
 TARGET_USES_64_BIT_BINDER := true
 else
@@ -50,8 +50,8 @@ TARGET_CPU_VARIANT := cortex-a53
 endif
 
 # Kernel
-BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk ramoops.mem_address=0x9ff00000 ramoops.mem_size=0x400000 ramoops.record_size=0x40000 androidboot.selinux=premissive
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk ramoops.mem_address=0x9ff00000 ramoops.mem_size=0x400000 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET     := 0x01000000
@@ -66,7 +66,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # RECOVERY
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/twrp.fstab
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/recovery.fstab
 
 # TWRP stuff
 TW_THEME := portrait_hdpi
@@ -78,7 +78,7 @@ TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 RECOVERY_SDCARD_ON_DATA := true
-TW_TARGET_USES_QCOM_BSP := true
+#TW_TARGET_USES_QCOM_BSP := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_INCLUDE_CRYPTO := true
 HAS_MOUSE := 0

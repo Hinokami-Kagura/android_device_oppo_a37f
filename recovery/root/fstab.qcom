@@ -1,21 +1,32 @@
+# Copyright (C) 2014 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
+#<src>			                                   <mnt_point>	 <type>	<mnt_flags>						                   < fs_mgr_flags>
+#/dev/block/platform/7824900.sdhci/by-name/dsps	  /firmware_dsps  vfat	ro,shortname=lower					                    wait
+/dev/block/platform/7824900.sdhci/by-name/radio	  /firmware_radio vfat	ro,shortname=lower,context=u:object_r:firmware_file:s0	wait
+/dev/block/platform/7824900.sdhci/by-name/adsp	  /firmware_q6    vfat	ro,shortname=lower,context=u:object_r:firmware_file:s0	wait
+#/dev/block/platform/7824900.sdhci/by-name/wcnss  /firmware_wcnss vfat	ro,shortname=lower					                    wait
 
-# Android fstab file.
-# The filesystem that contains the filesystem checker binary (typically /system) cannot
-# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+/dev/block/platform/7824900.sdhci/by-name/boot	   /boot		  emmc	defaults						                        defaults
+/dev/block/platform/7824900.sdhci/by-name/recovery /recovery	  emmc	defaults						                        defaults
+/dev/block/platform/7824900.sdhci/by-name/misc	   /misc		  emmc	defaults						                        defaults
+/dev/block/platform/7824900.sdhci/by-name/devlog   /devlog		  ext4	noatime,nosuid,nodev,barrier=0				            wait
+/dev/block/platform/7824900.sdhci/by-name/system   /system		  ext4	ro,noatime,barrier=0					                wait
+/dev/block/platform/7824900.sdhci/by-name/cache    /cache		  ext4	noatime,nosuid,nodev,barrier=0				            wait
+/dev/block/platform/7824900.sdhci/by-name/userdata /data		  ext4	noatime,nosuid,nodev,noauto_da_alloc,barrier=0	        wait,encryptable=/dev/block/platform/7824900.sdhci/by-name/extra
 
-#TODO: Add 'check' as fs_mgr_flags with data partition.
-# Currently we dont have e2fsck compiled. So fs check would failed.
-
-#<src>                                                <mnt_point>  <type>  <mnt_flags and options>                     <fs_mgr_flags>
-/dev/block/bootdevice/by-name/system         /system      ext4    ro,barrier=1,discard                                wait
-/dev/block/bootdevice/by-name/userdata       /data        ext4    nosuid,nodev,barrier=1,noauto_da_alloc,discard      wait,check,encryptable=footer,length=-16384
-/devices/soc.0/7864900.sdhci/mmc_host        /storage/sdcard1   vfat    nosuid,nodev         wait,voldmanaged=sdcard1:auto,noemulatedsd
-/dev/block/zram0             none         swap    defaults zramsize=536870912
-#ifdef VENDOR_EDIT
-#LinJie.Xu@Prd.Android.USB, 2015/05/11, Add for support OTG
-/devices/platform/msm_hsusb                  /storage/UDiskA    vfat    nosuid,nodev         wait,voldmanaged=UDiskA:auto   
-  
-
-#endif /* VENDOR_EDIT */
-/dev/block/bootdevice/by-name/config         /frp         emmc    defaults                                            defaults
+# SD card
+/devices/soc.0/7864900.sdhci/mmc_host               auto          auto  defaults                                                voldmanaged=sdcard1:auto,noemulatedsd,encryptable=userdata
+# USB storage
+/devices/platform/msm_hsusb                         auto          auto  defaults                                                voldmanaged=usbdisk:auto
