@@ -34,4 +34,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/init.qcom.sh:recovery/root/init.qcom.sh \
     $(LOCAL_PATH)/recovery/root/ueventd.qcom.rc:recovery/root/ueventd.qcom.rc \
     $(LOCAL_PATH)/recovery/root/remount.qcom:recovery/root/remount.qcom \
-    $(LOCAL_PATH)/recovery/root/sepolicy:recovery/root/sepolicy
+    #$(LOCAL_PATH)/recovery/root/sepolicy:recovery/root/sepolicy
