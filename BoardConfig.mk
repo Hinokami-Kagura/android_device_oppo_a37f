@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/oppo/a37f
+LOCAL_PATH := device/oppo/a51f
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
@@ -25,29 +25,13 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8916
 TARGET_NO_BOOTLOADER := true
 
 # Architecture
-ifneq ($(FORCE_32_BIT),true)
-TARGET_BOARD_SUFFIX := _64
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
 
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
-
-TARGET_USES_64_BIT_BINDER := true
-else
 TARGET_BOARD_SUFFIX := _32
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := cortex-a53
-endif
+TARGET_CPU_VARIANT := generic
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
@@ -58,9 +42,9 @@ BOARD_RAMDISK_OFFSET     := 0x01000000
 
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_TAGS_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset 0x00000100 --dt $(LOCAL_PATH)/prebuilt/dt.img
 
-TARGET_PREBUILT_KERNEL := device/oppo/a37f/prebuilt/kernel.gz
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_PREBUILT_KERNEL := device/oppo/a51f/prebuilt/kernel.gz
+TARGET_KERNEL_ARCH := arm
+TARGET_KERNEL_HEADER_ARCH := arm
 
 # TARGET IMAGES
 TARGET_USERIMAGES_USE_EXT4 := true

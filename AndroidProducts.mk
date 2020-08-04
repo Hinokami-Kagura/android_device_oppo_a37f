@@ -15,7 +15,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_a37f.mk
+    $(LOCAL_DIR)/omni_a51f.mk
 
 
 
