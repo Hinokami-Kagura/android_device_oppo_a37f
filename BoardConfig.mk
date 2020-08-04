@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/oppo/a51f
+LOCAL_PATH := device/oppo/A51f
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
