@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/oppo/a37f
+LOCAL_PATH := device/oppo/A51f
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
@@ -58,7 +58,7 @@ BOARD_RAMDISK_OFFSET     := 0x01000000
 
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_TAGS_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset 0x00000100 --dt $(LOCAL_PATH)/prebuilt/dt.img
 
-TARGET_PREBUILT_KERNEL := device/oppo/a37f/prebuilt/kernel.gz
+TARGET_PREBUILT_KERNEL := device/oppo/A51f/prebuilt/kernel.gz
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 
