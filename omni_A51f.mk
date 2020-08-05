@@ -21,17 +21,16 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := a37f
-PRODUCT_NAME := full_a37f
+PRODUCT_DEVICE := A51f
+PRODUCT_NAME := full_A51f
 PRODUCT_BRAND := OPPO
-PRODUCT_MODEL := A37f
+PRODUCT_MODEL := A51f
 PRODUCT_MANUFACTURER := OPPO
-PRODUCT_NAME := omni_a37f
+PRODUCT_NAME := omni_A51f
 
 # TWRP RECOVERY
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/fstab.qcom:recovery/root/fstab.qcom \
     $(LOCAL_PATH)/recovery/root/init.qcom.sh:recovery/root/init.qcom.sh \
     $(LOCAL_PATH)/recovery/root/ueventd.qcom.rc:recovery/root/ueventd.qcom.rc \
-    $(LOCAL_PATH)/recovery/root/remount.qcom:recovery/root/remount.qcom \
-    #$(LOCAL_PATH)/recovery/root/sepolicy:recovery/root/sepolicy
+    $(LOCAL_PATH)/recovery/root/remount.qcom:recovery/root/remount.qcom
